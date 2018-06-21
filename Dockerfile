@@ -1,8 +1,8 @@
-FROM alpine
+FROM alpine:latest
 
-MAINTAINER "Daniel McCoy" <danielmccoy@gmail.com>
+MAINTAINER "Eric Ball" <eball@ccctechcenter.org>
 
-RUN apk --update add wget \
+RUN apk --update --no-cache add wget \
   curl \
   git \
   php7 \
