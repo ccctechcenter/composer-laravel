@@ -20,7 +20,8 @@ RUN apk --update --no-cache add wget \
   php7-simplexml \
   php7-tokenizer \
   php7-xmlwriter \
-  php7-mbstring
+  php7-mbstring \
+  php7-fileinfo
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
 
