@@ -18,6 +18,7 @@ RUN apk --update --no-cache add wget \
   php7-mysqli \
   php7-openssl \
   php7-pdo \
+  php7-pdo_mysql \
   php7-pdo_pgsql \
   php7-pdo_sqlite \
   php7-pgsql \
@@ -31,6 +32,8 @@ RUN apk --update --no-cache add wget \
   php7-xmlwriter \
   php7-zip \
   php7-zlib
+
+RUN apk add --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing gnu-libiconv
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
 
