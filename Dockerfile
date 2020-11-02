@@ -1,6 +1,6 @@
-FROM alpine:latest
+FROM alpine:3.11
 
-MAINTAINER "Eric Ball" <eball@ccctechcenter.org>
+MAINTAINER "Emmett Culley" <eculley@ccctechcenter.org>
 
 RUN apk --update --no-cache add wget \
   curl \
