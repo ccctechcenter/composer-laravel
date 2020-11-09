@@ -43,4 +43,3 @@ VOLUME /var/www
 CMD ["bash"]
 
 ENTRYPOINT ["composer"]
-CMD ["--help"]
