@@ -40,6 +40,8 @@ WORKDIR /var/www
 
 VOLUME /var/www
 
-#CMD ["bash"]
+CMD ["bash"]
 
 ENTRYPOINT ["composer"]
+
+CMD ["--version"]
