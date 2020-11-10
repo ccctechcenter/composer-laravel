@@ -1,6 +1,6 @@
-FROM alpine:latest
+FROM alpine:3.11
 
-MAINTAINER "Eric Ball" <eball@ccctechcenter.org>
+MAINTAINER "Emmett Culley" <eculley@ccctechcenter.org>
 
 RUN apk --update --no-cache add wget \
   curl \
@@ -31,11 +31,8 @@ RUN apk --update --no-cache add wget \
   php7-xmlreader \
   php7-xmlwriter \
   php7-zip \
-  php7-zlib
-
-RUN apk add --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing gnu-libiconv
-
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
+  php7-zlib \
+  composer
 
 RUN mkdir -p /var/www
 
@@ -43,9 +40,8 @@ WORKDIR /var/www
 
 VOLUME /var/www
 
-RUN composer self-update
-
 CMD ["bash"]
 
 ENTRYPOINT ["composer"]
-CMD ["--help"]
+
+CMD ["--version"]
