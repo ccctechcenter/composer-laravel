@@ -1,4 +1,4 @@
-FROM alpine:3.11
+FROM alpine:3.13
 
 MAINTAINER "Emmett Culley" <eculley@ccctechcenter.org>
 
@@ -32,7 +32,7 @@ RUN apk --update --no-cache add wget \
   php7-xmlwriter \
   php7-zip \
   php7-zlib \
-  composer
+  composer >=2.0
 
 RUN mkdir -p /var/www
 
