@@ -1,4 +1,4 @@
-FROM alpine:3.15
+FROM alpine:3.16
 
 MAINTAINER "Emmett Culley" <eculley@ccctechcenter.org>
 
@@ -33,8 +33,6 @@ RUN apk --update --no-cache add wget \
   php8-zip \
   php8-zlib \
   composer
-
-RUN ln -s /usr/bin/php8 /usr/bin/php
 
 RUN apk add --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing gnu-libiconv
 
