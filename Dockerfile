@@ -1,15 +1,23 @@
-FROM alpine:3.21
+FROM alpine:3.22.2
 
-LABEL maintainer="UT Fong <ufong@ccctechcenter.org>"
+# Change the maintainer to your info if you update this version of the image.
+LABEL maintainer="Ken Van Mersbergen <kvanmersbergen@ccctechcenter.org>"
 
+# Clean up
 RUN rm -rf /var/cache/apk/* && \
     rm -rf /tmp/*
 
+# Update APK
 RUN apk update && \
     apk upgrade
 
-RUN apk add --no-cache \
+# Install APK packages
+RUN apk --update --no-cache add \
+  curl \
+  composer \
   gnu-libiconv \
+  tzdata \
+  wget \
   php83 \
   php83-ctype \
   php83-curl \
@@ -23,6 +31,7 @@ RUN apk add --no-cache \
   php83-mbstring \
   php83-openssl \
   php83-pdo \
+  php83-pecl-redis \
   php83-phar \
   php83-pdo_mysql \
   php83-pdo_pgsql \
@@ -36,26 +45,15 @@ RUN apk add --no-cache \
   php83-xmlreader \
   php83-xmlwriter \
   php83-zip \
-  php83-zlib \
-  php83-pecl-redis \
-  curl \
-  wget \
-  composer
+  php83-zlib
 
-RUN apk del php83
-
-#RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
+#RUN apk del php83
 
 RUN mkdir -p /var/www
 
 WORKDIR /var/www
 
 VOLUME /var/www/
-
-#RUN ls -l /usr/bin/php*
-#RUN composer self-update
-
-#CMD ["bash"]
 
 ENTRYPOINT ["composer"]
 
